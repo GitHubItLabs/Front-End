@@ -127,6 +127,52 @@ nav {
   width: 100%;
 }
 
+.burger-icon {
+  display: none;
+  margin-left: 50px;
+  padding: 8px 12px;
+  transition: background-color 0.2s ease-in-out;
+}
+.burger-icon-link {
+  color: #fff;
+}
+.burger-icon:hover {
+  color: #000;
+  background-color: #fff;
+}
+
+.nav-form {
+  display: inline-block;
+}
+.nav-form-input {
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  vertical-align: -webkit-baseline-middle;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding: 0 5px;
+  width: 150px;
+}
+.nav-form-icon-holder {
+  display: inline-block;
+  color: #fff;
+  vertical-align: -webkit-baseline-middle;
+  margin-left: -5px;
+}
+.nav-form-icon {
+  font-size: 10px;
+  border: 1px solid #fff;
+  padding: 3px 8px 2px 5px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.nav-form-icon:hover {
+  cursor: pointer;
+  background-color: #fff;
+  color: #000;
+}
+
 /* ========================= Active element of navigation ========================= */
 .active:after {
   content: "";
@@ -148,20 +194,6 @@ nav {
   margin-top: 5px;
   margin-right: 10px;
   vertical-align: -webkit-baseline-middle;
-}
-
-.burger-icon {
-  display: none;
-  margin-left: 50px;
-  padding: 8px 12px;
-  transition: background-color 0.2s ease-in-out;
-}
-.burger-icon-link {
-  color: #fff;
-}
-.burger-icon:hover {
-  color: #000;
-  background-color: #fff;
 }
 
 /* ========================= Hero image style ========================= */
@@ -220,6 +252,7 @@ aside {
   position: sticky;
   top: 0;
   box-shadow: -4px 0px 2px -3px rgba(0, 0, 0, 0.3);
+  background-color: #fcfcfc;
 }
 
 .sidebar {
