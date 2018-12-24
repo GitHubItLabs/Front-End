@@ -1,0 +1,20 @@
+.hero {
+    margin-bottom: 3rem;
+}
+
+.heading {
+    margin: 10px 0;
+}
+
+.rounded-circle {
+    margin-bottom: 20px;
+}
+
+.services-text {
+    min-height: 145px;
+}
+
+.portfolio-img {
+    width: 100%;
+    height: auto;
+}
