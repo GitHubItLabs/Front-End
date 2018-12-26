@@ -91,6 +91,59 @@ a {
   color: $black;
 }
 
+/* ========================= Nav bar ========================= */
+.nav-bar {
+  background-color: rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+
+  &-holder {
+    float: right;
+  }
+
+  &-item {
+    height: 20px;
+    margin-top: 5px;
+    margin-right: 10px;
+    vertical-align: -webkit-baseline-middle;
+  }
+}
+
+.nav-form {
+  display: inline-block;
+
+  &-input {
+    background-color: transparent;
+    border: 1px solid $white;
+    color: $white;
+    vertical-align: -webkit-baseline-middle;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding: 0 5px;
+    width: 150px;
+  }
+
+  &-icon-holder {
+    display: inline-block;
+    color: $white;
+    vertical-align: -webkit-baseline-middle;
+    margin-left: -5px;
+  }
+
+  &-icon {
+    font-size: 10px;
+    border: 1px solid #fff;
+    padding: 3px 8px 2px 5px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $white;
+      color: $black;
+    }
+  }
+}
+
 /* ========================= Header and navigation style ========================= */
 header {
   position: absolute;
@@ -143,6 +196,15 @@ nav {
   }
 }
 
+/* ========================= Active element of navigation ========================= */
+.active:after {
+  content: "";
+  background-color: $white;
+  display: block;
+  height: 2px;
+  width: 100%;
+}
+
 .burger-icon {
   margin-left: 50px;
   padding: 8px 12px;
@@ -159,67 +221,6 @@ nav {
   }
 }
 
-.nav-form {
-  display: inline-block;
-
-  &-input {
-    background-color: transparent;
-    border: 1px solid $white;
-    color: $white;
-    vertical-align: -webkit-baseline-middle;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    padding: 0 5px;
-    width: 150px;
-  }
-
-  &-icon-holder {
-    display: inline-block;
-    color: $white;
-    vertical-align: -webkit-baseline-middle;
-    margin-left: -5px;
-  }
-
-  &-icon {
-    font-size: 10px;
-    border: 1px solid #fff;
-    padding: 3px 8px 2px 5px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-
-    &:hover {
-      cursor: pointer;
-      background-color: $white;
-      color: $black;
-    }
-  }
-}
-
-/* ========================= Active element of navigation ========================= */
-.active:after {
-  content: "";
-  background-color: $white;
-  display: block;
-  height: 2px;
-  width: 100%;
-}
-
-.nav-bar {
-  background-color: rgba(0, 0, 0, 0.6);
-  overflow: hidden;
-
-  &-holder {
-    float: right;
-  }
-
-  &-item {
-    height: 20px;
-    margin-top: 5px;
-    margin-right: 10px;
-    vertical-align: -webkit-baseline-middle;
-  }
-}
-
 /* ========================= Hero image style ========================= */
 .hero {
   overflow: hidden;
@@ -227,23 +228,23 @@ nav {
   margin: 0 auto;
   white-space: nowrap;
 
+  &-img {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: inline-block;
+  }
+
   /* ========================= Keep the aspect ratio of the image ========================= */
   &:before {
     content: "";
     display: block;
     padding-top: 500px / 1900px * 100%;
   }
-}
-
-.hero-img {
-  width: 100%;
-  height: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  display: inline-block;
 }
 
 /* ========================= Grid that will be used to keep all elements within range ========================= */
@@ -277,7 +278,7 @@ aside {
   position: sticky;
   top: 0;
   box-shadow: -4px 0px 2px -3px rgba(0, 0, 0, 0.3);
-  background-color: darken($white, 1%);
+  background-color: darken($white, 5%);
 }
 
 .sidebar {
@@ -302,7 +303,7 @@ aside {
 
   &-text-holder {
     width: 70%;
-    display: inline-block;
+    float: left;
   }
 
   &-img-holder {
@@ -361,6 +362,17 @@ article {
     padding-top: 360px / 1020px * 100%;
   }
 
+  &-cover {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: inline-block;
+  }
+
   &-title {
     position: absolute;
     top: 50%;
@@ -384,17 +396,6 @@ article {
     color: $white;
     font-weight: 300;
   }
-}
-
-.image-cover {
-  width: 100%;
-  height: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  display: inline-block;
 }
 
 .overlay {
