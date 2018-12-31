@@ -1,0 +1,18 @@
+.fa-eye {
+  color: #1d67dd;
+  margin-right: 5px;
+}
+
+.fa-edit {
+  color: #fbcc2f;
+  margin-right: 5px;
+}
+
+.fa-trash-alt {
+  color: #e22222;
+}
+
+.fas,
+.far {
+  cursor: pointer;
+}
