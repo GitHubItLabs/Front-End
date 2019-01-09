@@ -1,0 +1,36 @@
+.fa-eye {
+  color: #1d67dd;
+  margin-right: 5px;
+}
+
+.fa-edit {
+  color: #fbcc2f;
+  margin-right: 5px;
+}
+
+.fa-save {
+  color: #0e8d0a;
+  margin-right: 5px;
+}
+
+.fa-trash-alt {
+  color: #e22222;
+}
+
+.fas,
+.far {
+  cursor: pointer;
+}
+
+.fa-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */
+}
