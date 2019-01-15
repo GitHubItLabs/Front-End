@@ -1,0 +1,48 @@
+.header {
+  transition: all 300ms ease-in;
+  background-color: $primary-color;
+  color: $white;
+
+  &-name {
+    margin: 5px;
+    text-overflow: ellipsis;
+    display: inline-block;
+  }
+
+  &-avatar {
+    margin: 5px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  }
+
+  &-burger {
+    font-size: 24px !important;
+    padding: 20px 15px;
+    vertical-align: -webkit-baseline-middle;
+    cursor: pointer;
+  }
+
+  &-user {
+    margin: 10px;
+    cursor: pointer;
+  }
+
+  &-arrow {
+    margin: 5px;
+  }
+
+  &.toggleSidenav {
+    transform: translateX(-250px);
+  }
+}
+
+.dropdown-menu {
+  min-width: 0 !important;
+}
+
+.dropdown-item {
+  cursor: pointer;
+}

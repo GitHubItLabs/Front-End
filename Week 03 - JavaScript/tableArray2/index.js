@@ -7,29 +7,29 @@ var newRow, newIndex, name, address, city, pin, country, newUser;
 var cell0, cell1, cell2, cell3, cell4, cell5, cell6;
 
 var users = [{
-  id: 1,
-  name: "Willie Allen",
-  address: "89 Chiaroscuro Rd.",
-  city: "Portland",
-  pin: 9543,
-  country: "USA"
-},
-{
-  id: 2,
-  name: "Charles Meyer",
-  address: "Obere Str. 57",
-  city: "Berlin",
-  pin: 12209,
-  country: "Germany"
-},
-{
-  id: 3,
-  name: "Emma Morris",
-  address: "25, rue Lauriston",
-  city: "Paris",
-  pin: 75016,
-  country: "France"
-}
+    id: 1,
+    name: "Willie Allen",
+    address: "89 Chiaroscuro Rd.",
+    city: "Portland",
+    pin: 9543,
+    country: "USA"
+  },
+  {
+    id: 2,
+    name: "Charles Meyer",
+    address: "Obere Str. 57",
+    city: "Berlin",
+    pin: 12209,
+    country: "Germany"
+  },
+  {
+    id: 3,
+    name: "Emma Morris",
+    address: "25, rue Lauriston",
+    city: "Paris",
+    pin: 75016,
+    country: "France"
+  }
 ];
 init();
 
@@ -46,6 +46,7 @@ function addRow() {
 
 function init() {
   debugger;
+
 
   for (var i = 0; i < 3; i++) {
     var x = [i];
@@ -88,6 +89,7 @@ function init() {
 form.addEventListener(
   "submit",
   function (event) {
+    debugger;
     // Get all inputs
     let name = document.getElementById("name-form");
     let address = document.getElementById("address");
@@ -139,7 +141,6 @@ function addUsers() {
 
 function viewAction(event) {
   // View name
-  debugger;
   var name = document.createTextNode(`${users[(event.parentNode.parentNode.rowIndex - 1)].name}`);
   var modalName = document.getElementById("modalName");
   modalName.appendChild(name);

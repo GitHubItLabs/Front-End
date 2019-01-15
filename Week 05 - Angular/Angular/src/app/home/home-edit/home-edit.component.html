@@ -1,0 +1,38 @@
+<sidebar></sidebar>
+<div class="smooth left-250">
+  <header></header>
+  <heading [title]="(edit == true) ? 'Edit user' : 'Add new user'">
+    <button class="btn btn-primary heading-btn" (click)="submit()" [disabled]="!addUserForm.valid">Add user</button>
+    <button class="btn btn-secondary heading-btn" [routerLink]="['/home']">Back</button>
+  </heading>
+
+  <page>
+    <p>Please add User ID, Name and Username for the user.</p>
+    <form [formGroup]="addUserForm" *ngIf="!loading">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <input formControlName="name" class="form-control" name="name" placeholder="Name" type="text">
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <input formControlName="username" class="form-control" name="username" placeholder="Username" type="text">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <input formControlName="email" class="form-control" name="email" placeholder="Email" type="text">
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <input formControlName="phone" class="form-control" name="phone" placeholder="Phone" type="text">
+          </div>
+        </div>
+      </div>
+    </form>
+  </page>
+</div>

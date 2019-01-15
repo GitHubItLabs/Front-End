@@ -41,6 +41,7 @@ addUsers();
 form.addEventListener(
   "submit",
   function (event) {
+    debugger;
     // Get all inputs
     let name = document.getElementById("name-form");
     let address = document.getElementById("address");
@@ -87,7 +88,8 @@ function addRow() {
 };
 
 function addUsers() {
-  tableBody.innerHTML = "";
+  debugger;
+  // tableBody.innerHTML = "";
   users.forEach(user => {
     addRow();
     newIndex = document.createTextNode(tableBody.rows.length);

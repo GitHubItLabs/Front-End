@@ -1,5 +1,6 @@
 var table = document.getElementById("table");
 var tableBody = table.getElementsByTagName("tbody")[0];
+console.log(tableBody);
 var form = document.querySelector("#form-holder");
 
 var newRow, newIndex, newName, newAddress, newCity, newPin, newCountry;
@@ -11,9 +12,8 @@ clearModal.addEventListener("hide.bs.modal", function () {
 });
 
 // Submit button
-form.addEventListener(
-  "submit",
-  function (event) {
+form.addEventListener("submit", function (event) {
+  debugger;
     // Get all inputs
     let name = document.getElementById("name-form");
     let address = document.getElementById("address");
@@ -63,6 +63,7 @@ form.addEventListener(
 );
 
 function viewAction(event) {
+  debugger;
   // View name
   var name = document.createTextNode(
     event.parentNode.parentNode.children[1].innerHTML
@@ -133,6 +134,7 @@ function saveAction(event) {
   if (saveName == "" || saveAddress == "" || saveCity == "" || savePin == "" || saveCountry == "") {
     alert("Please fill in the input fields");
   } else {
+    debugger;
 
     let namePrint = event.parentNode.parentNode.cells[1];
     let nameAddress = event.parentNode.parentNode.cells[2];

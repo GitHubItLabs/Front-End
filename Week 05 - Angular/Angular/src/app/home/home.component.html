@@ -1,0 +1,41 @@
+<sidebar></sidebar>
+<div class="smooth left-250">
+  <header></header>
+  <heading title="Users">
+    <button class="btn btn-primary heading-btn" [routerLink]="['/home', 'add']">Add user</button>
+  </heading>
+  <page>
+    <table class="table table-hover">
+      <thead>
+        <tr class="thead-dark">
+          <th>Id</th>
+          <th>Name</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of users">
+          <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.username}}</td>
+          <td>{{item.email}}</td>
+          <td>{{item.phone}}</td>
+          <td>
+            <button class="btn btn-sm btn-secondary" [routerLink]="['/home', 'edit', item.id]">
+              <i class="fa fa-pencil hover" aria-hidden="true"></i> Edit
+            </button>
+          </td>
+          <td>
+            <button class="btn btn-sm btn-danger" (click)="modalSingle.open(item)">
+              <i class="fa fa-trash hover" aria-hidden="true"></i> Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </page>
+  <modal #modalSingle (submit)="delete($event)"></modal>
+</div>
