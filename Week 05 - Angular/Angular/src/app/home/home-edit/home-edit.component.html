@@ -2,7 +2,7 @@
 <div class="smooth left-250">
   <header></header>
   <heading [title]="(edit == true) ? 'Edit user' : 'Add new user'">
-    <button class="btn btn-primary heading-btn" (click)="submit()" [disabled]="!addUserForm.valid">Add user</button>
+    <button class="btn btn-primary heading-btn" (click)="submit()" [disabled]="!addUserForm.valid">Save</button>
     <button class="btn btn-secondary heading-btn" [routerLink]="['/home']">Back</button>
   </heading>
 

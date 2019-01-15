@@ -71,7 +71,6 @@ export class HomeEditComponent implements OnInit {
   }
 
   submit() {
-    debugger;
     if (this.edit) {
       this.updateUser();
     } else {

@@ -13,8 +13,7 @@
           <th>Username</th>
           <th>Email</th>
           <th>Phone</th>
-          <th>Edit</th>
-          <th>Delete</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -25,13 +24,11 @@
           <td>{{item.email}}</td>
           <td>{{item.phone}}</td>
           <td>
-            <button class="btn btn-sm btn-secondary" [routerLink]="['/home', 'edit', item.id]">
-              <i class="fa fa-pencil hover" aria-hidden="true"></i> Edit
-            </button>
-          </td>
-          <td>
-            <button class="btn btn-sm btn-danger" (click)="modalSingle.open(item)">
-              <i class="fa fa-trash hover" aria-hidden="true"></i> Delete</button>
+            <span [routerLink]="['/home', 'edit', item.id]" class="mr-4">
+              <i class="fa fa-pencil hover" aria-hidden="true"></i>
+            </span>
+            <span (click)="modalSingle.open(item)">
+              <i class="fa fa-trash hover text-danger" aria-hidden="true"></i></span>
           </td>
         </tr>
       </tbody>
