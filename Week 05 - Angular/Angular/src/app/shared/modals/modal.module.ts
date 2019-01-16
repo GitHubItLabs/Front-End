@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
-import { ModalComponent } from './modal.component';
-
+import { ModalDelteComponent } from './modal-delete/modal-delete.component';
+import { ModalViewComponent } from './modal-view/modal-view.component';
 
 const DECLARATIONS = [
-    ModalComponent
+    ModalDelteComponent,
+    ModalViewComponent
+
 ];
 
 const SERVICES = [
-    
+
 ];
 
 const MODULES = [

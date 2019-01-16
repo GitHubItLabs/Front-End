@@ -11,8 +11,9 @@ export class Service {
     private http: HttpClient
   ) { }
 
-  getUsers() {
-    return this.http.get(this.endpoint + '/users');
+  getUsers(params) {
+    let { page, limit } = params;
+    return this.http.get(this.endpoint + `/users?_page=${page}&_limit=${limit}`);
   }
 
   getUser(id) {

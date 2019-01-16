@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { Service } from '../services/service';
+import { Service } from '../../services/service';
 
 @Component({
   selector: 'home-edit',
@@ -14,7 +14,7 @@ export class HomeEditComponent implements OnInit {
   edit: boolean;
   id: string;
   addUserForm: FormGroup;
-  post: any = {};
+  post: object = {};
 
   constructor(
     private formBuilder: FormBuilder,
@@ -35,7 +35,8 @@ export class HomeEditComponent implements OnInit {
   }
 
   getOnePost() {
-    this.service.getUser(this.id).subscribe(res => {
+    this.service.getUser(this.id)
+    .subscribe(res => {
       this.post = res;
       this.buildForm(this.post);
     })
@@ -54,7 +55,8 @@ export class HomeEditComponent implements OnInit {
 
   addUser() {
     let form = this.addUserForm.value;
-    this.service.addNewUser(form).subscribe(_ => {
+    this.service.addNewUser(form)
+    .subscribe(_ => {
       this.toastr.success(`New user is added.`);
     }, err => {
       this.toastr.error(err);
@@ -63,7 +65,8 @@ export class HomeEditComponent implements OnInit {
 
   updateUser() {
     let form = this.addUserForm.value;
-    this.service.updateCurrent(this.id, form).subscribe(_ => {
+    this.service.updateCurrent(this.id, form)
+    .subscribe(_ => {
       this.toastr.success(`User is updated.`);
     }, err => {
       this.toastr.error(err);
@@ -71,6 +74,7 @@ export class HomeEditComponent implements OnInit {
   }
 
   submit() {
+    debugger;
     if (this.edit) {
       this.updateUser();
     } else {

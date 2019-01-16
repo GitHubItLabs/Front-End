@@ -1,0 +1,54 @@
+<sidebar></sidebar>
+<div class="smooth left-250">
+  <header></header>
+  <heading title="Users">
+    <button class="btn btn-primary heading-btn" [routerLink]="['/home', 'add']">Add user</button>
+  </heading>
+  <page>
+    <table class="table table-hover">
+      <thead>
+        <tr class="thead-dark">
+          <th>Id</th>
+          <th>Name</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of users">
+          <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.username}}</td>
+          <td>{{item.email}}</td>
+          <td>{{item.phone}}</td>
+          <td>
+            <span [routerLink]="['/home', 'edit', item.id]" class="mr-3 action-icon" title="Edit">
+              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17">
+                <path class="action-icon-edit" d="M15.5 5.144a.572.572 0 0 0 0-.807l-1.838-1.842a.585.585 0 0 0-.807 0l-1.058 1.058 2.645 2.649zm-8.839 8.85l6.837-6.849-2.644-2.648-6.838 6.848zm-3.256-1.372l-.777 2.76 2.756-.778zm13.039-9.229a1.91 1.91 0 0 1 0 2.694l-9.31 9.324a.65.65 0 0 1-.29.17l-4.997 1.407c-.143.033-.483.003-.653-.17a.681.681 0 0 1-.17-.653l1.404-5a.652.652 0 0 1 .17-.29l9.317-9.323c1.035-1.039 2.331-.36 2.69 0z"
+                  fill="#757575" />
+              </svg>
+            </span>
+            <span (click)="modalView.open(item)" class="mr-3 action-icon" title="View">
+              <svg xmlns="http://www.w3.org/2000/svg" width="19" viewBox="0 0 576 512">
+                <path class="action-icon-view" d="M569.354 231.631C512.97 135.949 407.81 72 288 72 168.14 72 63.004 135.994 6.646 231.631a47.999 47.999 0 0 0 0 48.739C63.031 376.051 168.19 440 288 440c119.86 0 224.996-63.994 281.354-159.631a47.997 47.997 0 0 0 0-48.738zM288 392c-102.556 0-192.091-54.701-240-136 44.157-74.933 123.677-127.27 216.162-135.007C273.958 131.078 280 144.83 280 160c0 30.928-25.072 56-56 56s-56-25.072-56-56l.001-.042C157.794 179.043 152 200.844 152 224c0 75.111 60.889 136 136 136s136-60.889 136-136c0-31.031-10.4-59.629-27.895-82.515C451.704 164.638 498.009 205.106 528 256c-47.908 81.299-137.444 136-240 136z"
+                  fill="#757575" />
+              </svg>
+            </span>
+            <span (click)="modalDelete.open(item)" class="action-icon" title="Delete">
+              <svg id="SvgjsSvg1020" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:svgjs="http://svgjs.com/svgjs" width="13" height="18" viewBox="0 0 13 18">
+                <path class="action-icon-delete" id="SvgjsPath1022" d="M306 36H304V35C304 34.6856 303.905 34.0001 303.574 34.0001C303.54200000000003 34.0001 303.52000000000004 34.0103 303.51 34.0204C303.49899999999997 34.0103 303.477 34.0001 303.467 34.0001H297.426C297.09499999999997 34.0001 297 34.6856 297 35V36H295C294.273 36 294 36.6569 294 37.3465V39H295V49.9999C295 50.689699999999995 295.679 51.000099999999996 296.406 51.000099999999996H304.594C305.322 51.000099999999996 305.888 50.472699999999996 305.888 49.7831L306 39H307V37.3465C307 36.6569 306.727 36 306 36ZM298 35H303V36H298ZM296 49.9999C295.925 49.9999 296 48.9999 296 48.9999V39H305V49.9999ZM305 49.9999C305.075 49.9999 305 50.071099999999994 305 49.9999ZM306 38.0001H295V37C295 36.9289 295.925 37 296 37H305C305.075 37 306 36.9289 306 37ZM302 48V41H303V48ZM300 48V41H301V48ZM298 48V41H299V48Z "
+                  fill="#757575" transform="matrix(1,0,0,1,-294,-34)"></path>
+              </svg>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <ngb-pagination [collectionSize]="30" [(page)]="queryParams.page" aria-label="Default pagination" (click)="pageChange($event)"></ngb-pagination>
+  </page>
+  <modal-delete #modalDelete (submit)="delete($event)"></modal-delete>
+  <modal-view #modalView (submit)="view($event)"></modal-view>
+</div>
