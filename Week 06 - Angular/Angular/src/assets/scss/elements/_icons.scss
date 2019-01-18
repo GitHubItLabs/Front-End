@@ -1,0 +1,19 @@
+.action-icon {
+  &:hover {
+    cursor: pointer;
+
+    .action-icon {
+      &-edit {
+        fill: #d5bb26;
+      }
+
+      &-view {
+        fill: #2691d5;
+      }
+
+      &-delete {
+        fill: #d52626;
+      }
+    }
+  }
+}

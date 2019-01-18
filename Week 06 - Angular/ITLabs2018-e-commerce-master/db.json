@@ -1,0 +1,12 @@
+{
+  "ids": {
+    "Category": 132,
+    "Product": 1
+  },
+  "models": {
+    "Category": {
+      "128": "{\"name\":\"Some Name\",\"parentCategoryId\":32,\"id\":128}"
+    },
+    "Product": {}
+  }
+}

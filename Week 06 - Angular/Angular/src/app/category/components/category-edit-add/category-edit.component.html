@@ -1,0 +1,32 @@
+<sidebar></sidebar>
+<div class="left-250">
+  <header></header>
+  <heading [title]="(edit == true) ? 'Edit Category' : 'Add new Category'">
+    <button class="btn btn-primary heading-btn" (click)="submit()" [disabled]="!addCategoryForm.valid">Save</button>
+    <button class="btn btn-secondary heading-btn" [routerLink]="['/category']">Back</button>
+  </heading>
+
+  <page>
+    <p>Please add: Category name and Parent Category Id</p>
+    <form [formGroup]="addCategoryForm" *ngIf="!loading">
+      <div class="row">
+        <!-- <div class="col-sm-4">
+          <div class="form-group">
+            <input formControlName="id" class="form-control" name="categoryId" placeholder="Category Id" type="number">
+          </div>
+        </div> -->
+        <div class="col-sm-4">
+          <div class="form-group">
+            <input formControlName="name" class="form-control" name="categoryName" placeholder="Category Name" type="text">
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <input formControlName="parentCategoryId" class="form-control" name="categoryParent" placeholder="Parent Category Id"
+              type="number">
+          </div>
+        </div>
+      </div>
+    </form>
+  </page>
+</div>
