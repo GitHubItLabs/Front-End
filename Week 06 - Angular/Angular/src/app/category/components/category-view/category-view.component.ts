@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Service } from '../../services/service';
+import { CategoryService } from '../../services/category-service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'category-view',
@@ -7,31 +8,60 @@ import { Service } from '../../services/service';
   styleUrls: ['./category-view.component.scss']
 })
 export class CategoryViewComponent implements OnInit {
-  users: object = [];
+  searchForm: FormGroup;
+  categories: object = [];
   queryParams: object = {
     page: 1,
     limit: 10
   };
+  bla: string;
 
   constructor(
-    private service: Service
+    private formBuilder: FormBuilder,
+    private service: CategoryService
   ) { }
 
   ngOnInit() {
-    this.getAll();
+    this.getAll(this.queryParams);
+    this.buildForm()
   }
 
-  getAll() {
-    this.service.getCategories()
+  buildForm() {
+    this.searchForm = this.formBuilder.group({
+      search: ['', [Validators.required]]
+    })
+  }
+
+  getAll(params) {
+    this.service.getCategories(params)
       .subscribe(res => {
-        this.users = res;
+        this.categories = res;
       })
   }
 
   delete(id) {
     this.service.deleteCategory(id)
-      .subscribe(res => {
-        this.getAll();
+      .subscribe(_ => {
+        this.getAll(this.queryParams);
       })
   }
+
+  updateParams(params) {
+    this.queryParams = { ...this.queryParams, ...params };
+    return this.queryParams;
+  }
+
+  search() {
+    debugger;
+    let search = this.searchForm.value;
+    this.service.getSearch(search).subscribe(res => {
+      this.categories = res;
+    })
+  }
+
+  clear() {
+    this.buildForm()
+    this.getAll(this.queryParams);
+  }
+
 }

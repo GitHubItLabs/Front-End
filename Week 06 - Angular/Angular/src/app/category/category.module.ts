@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { Service } from './services/service';
+import { CategoryService } from './services/category-service';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CategoryViewComponent } from './components/category-view/category-view.component';
 import { CategoryEditComponent } from './components/category-edit-add/category-edit.component';
@@ -13,7 +13,7 @@ const DECLARATIONS = [
 ];
 
 const SERVICES = [
-    Service
+    CategoryService
 ];
 
 const MODULES = [

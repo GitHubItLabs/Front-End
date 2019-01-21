@@ -9,7 +9,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class ModalDelteComponent {
   currentName: string;
   currentId: string;
-  currentUsername: string;
+  currentParentId: string;
 
   @Output() submit = new EventEmitter<any>();
   @ViewChild('modalDelete') dialogTemplate: ElementRef;
@@ -22,7 +22,7 @@ export class ModalDelteComponent {
   open(item) {
     this.currentName = item.name;
     this.currentId = item.id;
-    this.currentUsername = item.username
+    this.currentParentId = item.parentCategoryId;
     return this.modalService.open(this.dialogTemplate, {
       ariaLabelledBy: 'modal-basic-title',
     }).result.then((close) => {

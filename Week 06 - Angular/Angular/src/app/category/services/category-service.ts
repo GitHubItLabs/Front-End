@@ -4,15 +4,19 @@ import { environment } from 'src/environments/environment';
 
 @Injectable()
 
-export class Service {
+export class CategoryService {
   endpoint = `${environment.endpoint}`;
 
   constructor(
     private http: HttpClient
   ) { }
 
-  getCategories() {
-    return this.http.get(this.endpoint + '/categories');
+  getCategories(params) {
+    return this.http.get(this.endpoint + '/categories', { params });
+  }
+
+  getSearch(input) {
+    return this.http.get(this.endpoint + `/categories?filter[where][name]=${input.search}`)
   }
 
   getCategory(id) {

@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { Service } from '../../services/service';
+import { CategoryService } from '../../services/category-service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'category-edit',
@@ -19,8 +20,9 @@ export class CategoryEditComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private activatedRoute: ActivatedRoute,
-    private service: Service,
-    private toastr: ToastrService
+    private service: CategoryService,
+    private toastr: ToastrService,
+    private _location: Location
   ) { }
 
   ngOnInit() {
@@ -78,6 +80,7 @@ export class CategoryEditComponent implements OnInit {
     } else {
       this.addCategory();
     }
+    this._location.back();
   }
 
 }
