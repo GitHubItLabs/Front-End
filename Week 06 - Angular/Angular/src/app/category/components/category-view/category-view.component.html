@@ -4,15 +4,12 @@
   <heading title="Categories">
     <button class="btn btn-primary heading-btn" [routerLink]="['/category', 'add']">Add Category</button>
   </heading>
-  <pre>
-    {{bla}}
-  </pre>
   <page>
     <div class="col-sm-12 mb-4 clearfix">
       <form [formGroup]="searchForm" class="form-inline float-right">
         <input formControlName="search" class="form-control mr-sm-2" type="search" placeholder="Search by Name"
           aria-label="Search">
-        <button class="btn btn-outline-primary mr-1" type="submit" (click)="search()" [disabled]=!searchForm.valid>Search</button>
+        <button class="btn btn-primary mr-1" type="submit" (click)="search()" [disabled]=!searchForm.valid>Search</button>
         <button class="btn btn-outline-secondary" type="submit" (click)="clear()">Clear</button>
       </form>
     </div>
@@ -20,15 +17,17 @@
       <table class="table table-hover table-bordered">
         <thead>
           <tr class="thead-dark">
-            <th>Name</th>
-            <th>Parent Id</th>
+            <th>Parent Category</th>
+            <th>Category Name</th>
+            <th>Description</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let item of categories">
+            <td>{{item.catName}}</td>
             <td>{{item.name}}</td>
-            <td>{{item.parentCategoryId}}</td>
+            <td>{{(item.description | slice:0:65) + '...'}}</td>
             <td>
               <span [routerLink]="['/category', 'edit', item.id]" class="mr-3 action-icon" title="Edit">
                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17">
@@ -53,6 +52,9 @@
           </tr>
         </tbody>
       </table>
+      <div class="alert alert-info text-center" role="alert" *ngIf="categories.length === 0">
+        No content in table
+      </div>
     </div>
     <!-- <ngb-pagination [collectionSize]="30" [(page)]="queryParams.page" aria-label="Default pagination" (click)="pageChange($event)"></ngb-pagination> -->
   </page>

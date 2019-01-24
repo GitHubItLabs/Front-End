@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { CategoryService } from '../../services/category-service';
-import { Location } from '@angular/common';
 
 @Component({
   selector: 'category-edit',
@@ -13,16 +12,23 @@ import { Location } from '@angular/common';
 export class CategoryEditComponent implements OnInit {
   loading: boolean = true;
   edit: boolean;
+  categories: object = [];
   id: string;
   addCategoryForm: FormGroup;
   post: object = {};
+  queryParams: object = {
+    page: 1,
+    limit: 10
+  };
+
+  pid: string;
 
   constructor(
     private formBuilder: FormBuilder,
     private activatedRoute: ActivatedRoute,
+    private router: Router,
     private service: CategoryService,
-    private toastr: ToastrService,
-    private _location: Location
+    private toastr: ToastrService
   ) { }
 
   ngOnInit() {
@@ -30,6 +36,7 @@ export class CategoryEditComponent implements OnInit {
     let state = this.activatedRoute.snapshot.params.mode;
     state == 'edit' ? this.edit = true : this.edit = false;
     this.buildForm();
+    this.getAll(this.queryParams);
 
     if (this.edit) {
       this.getOneCategory();
@@ -38,49 +45,61 @@ export class CategoryEditComponent implements OnInit {
 
   getOneCategory() {
     this.service.getCategory(this.id)
-    .subscribe(res => {
-      this.post = res;
-      this.buildForm(this.post);
-    })
+      .subscribe(res => {
+        this.post = res;
+        this.buildForm(this.post);
+      })
   }
 
   buildForm(form?) {
     this.addCategoryForm = this.formBuilder.group({
-      // id: [!!form ? form.id : '', [Validators.required]],
-      name: [!!form ? form.name : '', [Validators.required]],
-      parentCategoryId: [!!form ? form.parentCategoryId : '', [Validators.required]]
+      name: [!!form && form.name ? form.name : '', [Validators.required]],
+      parentCategoryId: [!!form && form.parentCategoryId ? form.parentCategoryId : ''],
+      description: [!!form && form.description ? form.description : '', [Validators.required]]
     })
-
     this.loading = false;
+  }
+
+  selectPerent(item) {
+    let selectedItem = +item.target.value;
+    if (selectedItem != 0) {
+      this.addCategoryForm.controls['parentCategoryId'].setValue(selectedItem);
+    } else {
+      this.addCategoryForm.removeControl('parentCategoryId');
+    }
+  }
+
+  getAll(params) {
+    this.service.getCategories(params)
+      .subscribe(res => {
+        this.categories = res;
+      })
   }
 
   addCategory() {
     let form = this.addCategoryForm.value;
     this.service.getNewCategory(form)
-    .subscribe(_ => {
-      this.toastr.success(`New category is added.`);
-    }, err => {
-      this.toastr.error(err);
-    })
+      .subscribe(_ => {
+        this.toastr.success(`New category is added.`);
+        this.router.navigate(['/category']);
+      }, err => {
+        this.toastr.error(err.message);
+      })
   }
 
   updateCategory() {
     let form = this.addCategoryForm.value;
     this.service.updateCurrent(this.id, form)
-    .subscribe(_ => {
-      this.toastr.success(`Category is updated.`);
-    }, err => {
-      this.toastr.error(err);
-    })
+      .subscribe(_ => {
+        this.toastr.success(`Category is updated.`);
+        this.router.navigate(['/category']);
+      }, err => {
+        this.toastr.error(err);
+      })
   }
 
   submit() {
-    if (this.edit) {
-      this.updateCategory();
-    } else {
-      this.addCategory();
-    }
-    this._location.back();
+    (this.edit) ? this.updateCategory() : this.addCategory();
   }
 
 }

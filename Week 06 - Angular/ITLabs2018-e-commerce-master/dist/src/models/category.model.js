@@ -31,6 +31,12 @@ __decorate([
     __metadata("design:type", Number)
 ], Category.prototype, "id", void 0);
 __decorate([
+    repository_1.property({
+        type: 'string',
+    }),
+    __metadata("design:type", String)
+], Category.prototype, "description", void 0);
+__decorate([
     repository_1.hasMany(() => product_model_1.Product),
     __metadata("design:type", Array)
 ], Category.prototype, "products", void 0);

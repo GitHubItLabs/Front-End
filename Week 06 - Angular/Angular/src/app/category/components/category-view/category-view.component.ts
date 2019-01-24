@@ -9,13 +9,11 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class CategoryViewComponent implements OnInit {
   searchForm: FormGroup;
-  categories: object = [];
-  queryParams: object = {
+  categories: any = [];
+  queryParams: any = {
     page: 1,
     limit: 10
   };
-  bla: string;
-
   constructor(
     private formBuilder: FormBuilder,
     private service: CategoryService
@@ -23,7 +21,7 @@ export class CategoryViewComponent implements OnInit {
 
   ngOnInit() {
     this.getAll(this.queryParams);
-    this.buildForm()
+    this.buildForm();
   }
 
   buildForm() {
@@ -36,8 +34,22 @@ export class CategoryViewComponent implements OnInit {
     this.service.getCategories(params)
       .subscribe(res => {
         this.categories = res;
+        this.categories.map(x => {
+          this.getCatName(x);
+        })
       })
+      
   }
+
+
+  getCatName(x) {
+    this.categories.map(i => {
+      if (i.parentCategoryId === x.id) {
+        i['catName'] = x.name
+      }
+    });
+  }
+
 
   delete(id) {
     this.service.deleteCategory(id)
@@ -52,7 +64,6 @@ export class CategoryViewComponent implements OnInit {
   }
 
   search() {
-    debugger;
     let search = this.searchForm.value;
     this.service.getSearch(search).subscribe(res => {
       this.categories = res;

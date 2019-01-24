@@ -8,7 +8,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class ModalViewComponent {
   currentName: string;
-  currentParentId: number;
+  currentDescription: string;
 
 
   @Output() submit = new EventEmitter<any>();
@@ -21,7 +21,7 @@ export class ModalViewComponent {
 
   open(content) {
     this.currentName = content.name;
-    this.currentParentId = content.parentCategoryId;
+    this.currentDescription = content.description;
     this.modalService.open(this.dialogTemplate, {
       ariaLabelledBy: 'modalView'
     }).result.then((close) => {
