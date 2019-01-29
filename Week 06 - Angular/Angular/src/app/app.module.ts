@@ -27,7 +27,7 @@ import { SharedModule } from './shared/shared.module';
     FormsModule,
     SharedModule,
     BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot(), // ToastrModule added
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

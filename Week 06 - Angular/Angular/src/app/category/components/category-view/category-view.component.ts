@@ -35,21 +35,18 @@ export class CategoryViewComponent implements OnInit {
       .subscribe(res => {
         this.categories = res;
         this.categories.map(x => {
-          this.getCatName(x);
+          this.getCategoryName(x);
         })
       })
-      
   }
 
-
-  getCatName(x) {
+  getCategoryName(x) {
     this.categories.map(i => {
       if (i.parentCategoryId === x.id) {
-        i['catName'] = x.name
+        i['categoryName'] = x.name
       }
     });
   }
-
 
   delete(id) {
     this.service.deleteCategory(id)
