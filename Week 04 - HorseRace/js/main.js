@@ -41,6 +41,7 @@ startBtn.addEventListener('click', () => {
     run();
     toggleText();
     results();
+    end();
 });
 
 function results() {
@@ -60,5 +61,11 @@ function results() {
     } else if (brownRes < goldRes || brownRes < whiteRes) {
         console.log('Brown Wins!');
     }
-
 }
+
+function end() {
+    var goldInteger = parseInt(goldRes, 10);
+    var whiteInteger = parseInt(whiteRes, 10);
+    var brownInteger = parseInt(brownRes, 10);
+}
+
