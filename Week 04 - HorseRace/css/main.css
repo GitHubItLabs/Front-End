@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url(../assets/bg/cartoon-bg-01.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.horses {
+  margin-top: 35vh;
+}
+
+.horse-gold {
+  height: 13vh;
+  margin-left: 160px;
+  position: relative;
+  left: -20vw;
+}
+.horse-white {
+  height: 17vh;
+  margin-left: 80px;
+  position: relative;
+  left: -20vw;
+}
+.horse-brown {
+  height: 22vh;
+  position: relative;
+  left: -20vw;
+}
+
+.animate {
+  animation: run ease-in;
+  animation-play-state: paused;
+}
+
+.cactus {
+  max-height: 400px;
+  position: absolute;
+  right: 50px;
+  bottom: 0;
+}
+
+.sign {
+  position: absolute;
+  left: 50%;
+  top: 0%;
+  transform: translateX(-50%);
+}
+
+#start-btn {
+  position: absolute;
+  left: 50%;
+  top: 7%;
+  transform: translateX(-50%);
+  font-family: "Roboto Condensed", sans-serif;
+  background: transparent;
+  border: none;
+  text-transform: uppercase;
+  color: #44250f;
+  font-size: 43px;
+  line-height: 100%;
+  text-shadow: -2px -2px #e8bd79;
+  cursor: pointer;
+}
+
+@keyframes run {
+  100% {
+    left: 100%;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */
