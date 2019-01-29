@@ -26,18 +26,10 @@ function run() {
     brownRes = brownHorse.style.animationDuration = randomNo() + "s";
 
     // Toggle animate class
-    // goldHorse.classList.toggle('animate');
-    // whiteHorse.classList.toggle('animate');
-    // brownHorse.classList.toggle('animate');
-    
-    var p = document.getElementById('asd');
-    p.style.animation = "run " + randomNo() + "s" + " ease-in";
-    p.addEventListener('animationend', myEndF);
+    goldHorse.classList.toggle('animate');
+    whiteHorse.classList.toggle('animate');
+    brownHorse.classList.toggle('animate');
 
-
-    function myEndF() {
-        console.log('asdasd')
-    }
 }
 
 function toggleText() {
@@ -53,12 +45,20 @@ startBtn.addEventListener('click', () => {
 
 function results() {
     debugger;
-    if (goldRes > whiteRes > brownRes) {
-        console.log("Gold Wins!")
-    } else if (whiteRes > goldRes > brownRes) {
-        console.log('white wins!')
-    } else {
-        console('brown Wins!');
+    if (goldRes == whiteRes) {
+        console.log('Gold and White are tie!');
+    } else if (goldRes == brownRes) {
+        console.log('Gold and Brown are tie!');
+    } else if (whiteRes == goldRes) {
+        console.log('White and Gold are tie!');
+    } else if (whiteRes == brownRes) {
+        console.log('White and Brown are tie!');
+    } else if (goldRes < whiteRes || goldRes < brownRes) {
+        console.log("Gold Wins!");
+    } else if (whiteRes < goldRes || whiteRes < brownRes) {
+        console.log('White Wins!');
+    } else if (brownRes < goldRes || brownRes < whiteRes) {
+        console.log('Brown Wins!');
     }
-    
+
 }

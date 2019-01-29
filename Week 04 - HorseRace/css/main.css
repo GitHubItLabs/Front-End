@@ -54,7 +54,7 @@ body {
 #start-btn {
   position: absolute;
   left: 50%;
-  top: 7%;
+  top: 65px;
   transform: translateX(-50%);
   font-family: "Roboto Condensed", sans-serif;
   background: transparent;
@@ -63,7 +63,7 @@ body {
   color: #44250f;
   font-size: 43px;
   line-height: 100%;
-  text-shadow: -2px -2px #e8bd79;
+  text-shadow: 2px 2px #e8bd79, -2px -2px #e8bd79, 2px -2px #e8bd79, -2px 2px #e8bd79;
   cursor: pointer;
 }
 
