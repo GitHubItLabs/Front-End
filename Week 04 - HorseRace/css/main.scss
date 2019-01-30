@@ -4,14 +4,14 @@
 }
 
 body {
-    background-image: url(../assets/bg/cartoon-bg-01.png);
+    background-image: url(../assets/bg/cartoon-bg.png);
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
 }
 
 .horses {
-    margin-top: 35vh;
+    margin-top: 18vh;
 }
 
 .horse {
@@ -50,10 +50,24 @@ body {
 }
 
 .sign {
-    position: absolute;
+    position: relative;
     left: 50%;
     top: 0%;
     transform: translateX(-50%);
+}
+
+.holder {
+    &-sign {
+        position: relative;
+    }
+    &-swing {
+        position: absolute;
+        right: 10%;
+        top: 0;
+        display: none;
+        transform-origin: top;
+        animation: 2s;
+    }
 }
 
 #start-btn {
@@ -75,8 +89,44 @@ body {
     cursor: pointer;
 }
 
+#winner {
+    position: absolute;
+    width: 80%;
+    text-align: center;
+    left: 50%;
+    top: 38%;
+    transform: translateX(-50%);
+    font-family: "Roboto Condensed", sans-serif;
+    text-transform: uppercase;
+    color: #44250f;
+    font-size: 30px;
+    animation: 2s;
+    text-shadow: 2px 2px #e8bd79,
+        -2px -2px #e8bd79,
+        2px -2px #e8bd79,
+        -2px 2px #e8bd79;
+}
+
 @keyframes run {
     100% {
         left: 100%;
+    }
+}
+
+@keyframes swing {
+    0% {
+        transform: rotateX(90deg);
+    }
+
+    50% {
+        transform: rotateX(-30deg);
+    }
+
+    80% {
+        transform: rotateX(20deg);
+    }
+
+    100% {
+        transform: rotateX(0deg);
     }
 }
