@@ -1,0 +1,55 @@
+<sidebar></sidebar>
+<div class="left-250">
+  <header></header>
+  <heading [title]="(edit == true) ? 'Edit Product' : 'Add new Product'">
+    <button class="btn btn-primary heading-btn" (click)="submit()" [disabled]="!addProductForm.valid">Save</button>
+    <button class="btn btn-secondary heading-btn" [routerLink]="['/products']">Back</button>
+  </heading>
+  <page>
+    <form [formGroup]="addProductForm" *ngIf="!loading">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="form-group">
+            <input formControlName="name" class="form-control" name="productName" placeholder="Name*" type="text">
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <input formControlName="categories" class="form-control" name="productCategory" placeholder="Category*"
+              type="text">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="form-group">
+            <input formControlName="manufacturer" class="form-control" name="productManufacturer" placeholder="Manufacturer*"
+              type="text">
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label class="d-block mb-0">Availability:*</label>
+            <input formControlName="available" type="checkbox" aria-label="Checkbox for availability">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="form-group">
+            <textarea formControlName="shortDesc" class="form-control" name="shortDesc" placeholder="Short Description"
+              type="text"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="form-group">
+            <textarea formControlName="description" rows="6" class="form-control" name="description" placeholder="Description"
+              type="text"></textarea>
+          </div>
+        </div>
+      </div>
+    </form>
+  </page>
+</div>

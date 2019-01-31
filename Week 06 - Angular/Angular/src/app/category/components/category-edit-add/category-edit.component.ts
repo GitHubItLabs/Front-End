@@ -21,8 +21,6 @@ export class CategoryEditComponent implements OnInit {
     limit: 10
   };
 
-  pid: string;
-
   constructor(
     private formBuilder: FormBuilder,
     private activatedRoute: ActivatedRoute,

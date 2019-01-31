@@ -11,6 +11,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { SharedModule } from './shared/shared.module';
+import { ProductsModule } from './products/products.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { SharedModule } from './shared/shared.module';
     SharedModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(),
+    ProductsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
