@@ -2,17 +2,18 @@ import { Component, Output, EventEmitter, ViewChild, ElementRef } from '@angular
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'modal-view',
-  templateUrl: './modal-view.component.html',
-  styleUrls: ['./modal-view.component.scss']
+  selector: 'modal-view-product',
+  templateUrl: './modal-view-product.component.html',
+  styleUrls: ['./modal-view-product.component.scss']
 })
-export class ModalViewComponent {
+export class ModalViewProductComponent {
   currentName: string;
   currentDescription: string;
+  currentManufacturer: string;
 
 
   @Output() submit = new EventEmitter<any>();
-  @ViewChild('modalView') dialogTemplate: ElementRef;
+  @ViewChild('modalViewProduct') dialogTemplate: ElementRef;
 
   constructor(
     private modalService: NgbModal
@@ -21,9 +22,10 @@ export class ModalViewComponent {
 
   open(content) {
     this.currentName = content.name;
-    this.currentDescription = content.description;
+    this.currentManufacturer = content.manufacturer;
+    this.currentDescription = content.shortDescription;
     this.modalService.open(this.dialogTemplate, {
-      ariaLabelledBy: 'modalView'
+      ariaLabelledBy: 'modalViewProduct'
     }).result.then((close) => {
       console.log('close');
       this.submit.emit(content.id);

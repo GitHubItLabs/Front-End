@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProductService } from '../services/product-service';
 import { ToastrService } from 'ngx-toastr';
+import { ProductService } from '../../services/product-service';
 
 @Component({
   selector: 'product-edit-add',
@@ -13,6 +13,7 @@ export class ProductEditAddComponent implements OnInit {
   loading: boolean = true;
   edit: boolean;
   products: object = [];
+  categories: object = [];
   id: string;
   addProductForm: FormGroup;
   post: object = {};
@@ -35,6 +36,7 @@ export class ProductEditAddComponent implements OnInit {
     state == 'edit' ? this.edit = true : this.edit = false;
     this.buildForm();
     this.getAll(this.queryParams);
+    this.getCategories();
 
     if (this.edit) {
       this.getOneProduct();
@@ -52,23 +54,19 @@ export class ProductEditAddComponent implements OnInit {
   buildForm(form?) {
     this.addProductForm = this.formBuilder.group({
       name: [!!form && form.name ? form.name : '', [Validators.required]],
-      categories: [!!form && form.categories ? form.categories : ''],
       manufacturer: [!!form && form.manufacturer ? form.manufacturer : '', [Validators.required]],
-      available: [!!form && form.isAvailable ? form.isAvailable : '', [Validators.required]],
-      shortDesc: [!!form && form.shortDesc ? form.shortDesc : '', [Validators.required]],
-      description: [!!form && form.description ? form.description : '', [Validators.required]]
+      isAvailable: [!!form && form.isAvailable ? form.isAvailable : ''],
+      shortDescription: [!!form && form.shortDescription ? form.shortDescription : ''],
+      fullDescription: [!!form && form.fullDescription ? form.fullDescription : '']
     })
     this.loading = false;
   }
 
-  // selectPerent(item) {
-  //   let selectedItem = +item.target.value;
-  //   if (selectedItem != 0) {
-  //     this.addProductForm.controls['parentProductId'].setValue(selectedItem);
-  //   } else {
-  //     this.addProductForm.removeControl('parentProductId');
-  //   }
-  // }
+  selectCategory(item) {
+    debugger;
+    let selectedItem = +item.target.value;
+    this.addProductForm.controls['categoryId'].setValue(selectedItem);
+  }
 
   getAll(params) {
     this.service.getProducts(params)
@@ -77,7 +75,15 @@ export class ProductEditAddComponent implements OnInit {
       })
   }
 
+  getCategories() {
+    this.service.getCategories()
+      .subscribe(res => {
+        this.categories = res;
+      })
+  }
+
   addProduct() {
+    debugger
     let form = this.addProductForm.value;
     this.service.getNewProduct(form)
       .subscribe(_ => {

@@ -1,13 +1,14 @@
-<ng-template #modalView let-modal>
+<ng-template #modalViewProduct let-modal>
   <div class="modal-header">
-<h4 class="modal-title" id="modal-basic-title">Viewing category <em>{{currentName}}</em></h4>
+    <h4 class="modal-title" id="modal-basic-title">Viewing <em>{{currentName}}</em></h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
-    <p>Category Name: <b>{{currentName}}</b></p>
-    <p>Category Description: <b>{{(currentDescription)}}</b></p>
+    <p>Product Name: <b>{{currentName}}</b></p>
+    <p>Current Manufacturer: <b>{{currentManufacturer}}</b></p>
+    <p>Product Description: <b>{{(currentDescription)}}</b></p>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss()">Close</button>

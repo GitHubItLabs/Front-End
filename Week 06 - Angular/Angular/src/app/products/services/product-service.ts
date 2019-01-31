@@ -35,4 +35,8 @@ export class ProductService {
         return this.http.delete(this.endpoint + `/products/${id}`);
     }
 
+    getCategories() {
+        return this.http.get(this.endpoint + '/categories');
+    }
+
 }

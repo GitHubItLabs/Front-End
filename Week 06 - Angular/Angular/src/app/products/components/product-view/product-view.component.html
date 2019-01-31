@@ -31,13 +31,13 @@
             <td>{{item.isAvailable}}</td>
             <td>{{(item.shortDescription | slice:0:65) + '...'}}</td>
             <td>
-              <span [routerLink]="['/category', 'edit', item.id]" class="mr-3 action-icon" title="Edit">
+              <span [routerLink]="['/products', 'edit', item.id]" class="mr-3 action-icon" title="Edit">
                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17">
                   <path class="action-icon-edit" d="M15.5 5.144a.572.572 0 0 0 0-.807l-1.838-1.842a.585.585 0 0 0-.807 0l-1.058 1.058 2.645 2.649zm-8.839 8.85l6.837-6.849-2.644-2.648-6.838 6.848zm-3.256-1.372l-.777 2.76 2.756-.778zm13.039-9.229a1.91 1.91 0 0 1 0 2.694l-9.31 9.324a.65.65 0 0 1-.29.17l-4.997 1.407c-.143.033-.483.003-.653-.17a.681.681 0 0 1-.17-.653l1.404-5a.652.652 0 0 1 .17-.29l9.317-9.323c1.035-1.039 2.331-.36 2.69 0z"
                     fill="#757575" />
                 </svg>
               </span>
-              <span (click)="modalView.open(item)" class="mr-3 action-icon" title="View">
+              <span (click)="modalViewCategory.open(item)" class="mr-3 action-icon" title="View">
                 <svg xmlns="http://www.w3.org/2000/svg" width="19" viewBox="0 0 576 512">
                   <path class="action-icon-view" d="M569.354 231.631C512.97 135.949 407.81 72 288 72 168.14 72 63.004 135.994 6.646 231.631a47.999 47.999 0 0 0 0 48.739C63.031 376.051 168.19 440 288 440c119.86 0 224.996-63.994 281.354-159.631a47.997 47.997 0 0 0 0-48.738zM288 392c-102.556 0-192.091-54.701-240-136 44.157-74.933 123.677-127.27 216.162-135.007C273.958 131.078 280 144.83 280 160c0 30.928-25.072 56-56 56s-56-25.072-56-56l.001-.042C157.794 179.043 152 200.844 152 224c0 75.111 60.889 136 136 136s136-60.889 136-136c0-31.031-10.4-59.629-27.895-82.515C451.704 164.638 498.009 205.106 528 256c-47.908 81.299-137.444 136-240 136z"
                     fill="#757575" />
@@ -60,5 +60,5 @@
     </div>
   </page>
   <modal-delete #modalDelete (submit)="delete($event)"></modal-delete>
-  <modal-view #modalView (submit)="view($event)"></modal-view>
+  <modal-view-product #modalViewCategory (submit)="view($event)"></modal-view-product>
 </div>

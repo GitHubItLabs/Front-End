@@ -1,12 +1,12 @@
 <ng-template #modalDelete let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Delete category {{currentName}}</h4>
+    <h4 class="modal-title" id="modal-basic-title">Delete {{currentName}}</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
-    <p>Please confirm if you want to delete category <b>"{{currentName}}"</b> with parent id <b>{{currentParentId}}</b></p>
+    <p>Please confirm if you want to delete <b>"{{currentName}}"</b></p>
   </div>
   <div class="modal-footer double-btn">
     <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss()">Cancel</button>

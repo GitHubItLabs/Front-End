@@ -12,10 +12,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { SharedModule } from './shared/shared.module';
 import { ProductsModule } from './products/products.module';
+import { ModalViewProductComponent } from './modals/modal-view-product/modal-view-product.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ModalViewProductComponent
   ],
   imports: [
     BrowserModule,

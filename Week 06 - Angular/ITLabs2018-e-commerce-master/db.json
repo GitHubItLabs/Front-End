@@ -1,15 +1,18 @@
 {
   "ids": {
     "Category": 200,
-    "Product": 1
+    "Product": 4
   },
   "models": {
     "Category": {
       "193": "{\"id\":193,\"name\":\"Apparel\",\"description\":\"Cake sweet bear claw. Cookie lemon drops gingerbread gingerbread brownie. Candy cheesecake carrot cake. Jelly-o dragée topping bonbon cotton candy halvah cupcake liquorice biscuit.\"}",
       "194": "{\"name\":\"Electronics\",\"description\":\"Ice cream dragée cupcake biscuit candy canes sugar plum gingerbread sesame snaps pudding. Tootsie roll danish apple pie gingerbread liquorice chocolate cake apple pie chocolate cake marzipan. Candy liquorice marzipan.\",\"id\":194}",
-      "198": "{\"name\":\"asda\",\"description\":\"asfasdfasf\",\"parentCategoryId\":193,\"id\":198}",
-      "199": "{\"name\":\"dasdasdasd\",\"description\":\"asdasdas\",\"id\":199}"
+      "198": "{\"id\":198,\"name\":\"asda\",\"description\":\"hibiyhbbuy\",\"parentCategoryId\":193}",
+      "199": "{\"id\":199,\"name\":\"Vehicles\",\"description\":\"Gummies sweet roll sesame snaps halvah chocolate cake wafer sweet roll fruitcake toffee.\"}"
     },
-    "Product": {}
+    "Product": {
+      "1": "{\"id\":1,\"name\":\"Test\",\"imageUrl\":\"string\",\"manufacturer\":\"China\",\"isAvailable\":true,\"shortDescription\":\"Short\",\"fullDescription\":\"Longer\",\"categoryId\":0}",
+      "3": "{\"id\":3,\"name\":\"PlayStation 4\",\"manufacturer\":\"Sony\",\"isAvailable\":true,\"shortDescription\":\"Muffin jelly beans sweet roll tootsie roll pudding. \",\"fullDescription\":\"LongerMuffin jelly beans sweet roll tootsie roll pudding. Sugar plum apple pie gummies cake halvah. Caramels marshmallow dessert.\"}"
+    }
   }
 }
